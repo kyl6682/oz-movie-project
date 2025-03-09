@@ -13,6 +13,7 @@ import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import styled from "styled-components";
 
 import useMovies from "../hooks/useMovies";
+import { Link } from "react-router-dom";
 
 const SlideDiv = styled.div`
   position: relative;
@@ -43,11 +44,11 @@ const SlideDiv = styled.div`
 `;
 
 function MovieSlide() {
-  const {movies, loading, error} = useMovies();
-  const movieData = movies.filter((movie) => movie.adult !== true).slice(0,8)
+  const { movies, loading, error } = useMovies();
+  const movieData = movies.filter((movie) => movie.adult !== true).slice(0, 8);
 
-  if (loading) return <p>loading...</p>
-  if (error) return <p>error : {error}</p>
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>error : {error}</p>;
 
   return (
     <>
@@ -68,14 +69,16 @@ function MovieSlide() {
         {movieData.map((movie) => {
           return (
             <SwiperSlide key={movie.id}>
-              <SlideDiv>
-                <img
-                  src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
-                />
-                <div>
-                  <h2>{movie.title}</h2>
-                </div>
-              </SlideDiv>
+              <Link to={`/detail/${movie.id}`}>
+                <SlideDiv>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
+                  />
+                  <div>
+                    <h2>{movie.title}</h2>
+                  </div>
+                </SlideDiv>
+              </Link>
             </SwiperSlide>
           );
         })}

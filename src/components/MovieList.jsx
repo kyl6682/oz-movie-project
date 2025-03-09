@@ -12,7 +12,10 @@ const MovieCards = styled.ul`
 
 const MovieCard = styled.li`
   width: 250px;
+  height: 400px;
   list-style: none;
+  border: 1px solid #f1f1f1;
+  padding: 20px;
   img {
     width: 200px;
     height: 300px;
@@ -28,7 +31,7 @@ const Movie = ({ movie }) => {
           alt={movie.title}
         />
         <h3>{movie.title}</h3>
-        <div>평점: {movie.vote_average}</div>
+        <div>평점: {movie.vote_average.toFixed(2)}</div>
       </Link>
     </MovieCard>
   );

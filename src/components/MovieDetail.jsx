@@ -6,6 +6,7 @@ const MovieInfoDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  text-align: start;
   div {
     display: flex;
     align-items: center;
@@ -21,7 +22,7 @@ const MovieDetail = () => {
   const movieDetail = {
     id: movie.id,
     title: movie.title,
-    rate: movie.vote_average,
+    rate: movie.vote_average.toFixed(2),
     image: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
     genres: movie.genres.map((genre) => genre.name).join(", "),
     overview: movie.overview,
