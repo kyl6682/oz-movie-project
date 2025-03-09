@@ -35,16 +35,18 @@ const Movie = ({ movie }) => {
 };
 
 function MovieList() {
+  const { movies, loading, error } = useMovies();
 
-  const {movies, loading, error} = useMovies();
-
-  if (loading) return <p>loading...</p>
-  if (error) return <p>error : {error}</p>
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>error : {error}</p>;
+  console.log(movies);
   return (
     <MovieCards>
-      {movies.map((movie) => (
-        <Movie key={movie.id} movie={movie} />
-      ))}
+      {movies
+        .filter((movie) => movie.adult !== true)
+        .map((movie) => (
+          <Movie key={movie.id} movie={movie} />
+        ))}
     </MovieCards>
   );
 }
