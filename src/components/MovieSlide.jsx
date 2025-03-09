@@ -1,6 +1,5 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import movieListData from "../data/movieListData.json";
 
 // Import Swiper styles
 import "swiper/css";
@@ -9,9 +8,14 @@ import "swiper/css/pagination";
 
 // import required modules
 import { FreeMode, Pagination } from "swiper/modules";
+import useMovies from "../hooks/useMovies";
 
 function MovieSlide() {
-  const MovieData = movieListData.results;
+  const {movies, loading, error} = useMovies();
+  const movieData = movies.slice(0,8)
+
+  if (loading) return <p>loading...</p>
+  if (error) return <p>error : {error}</p>
   return (
     <>
       <Swiper
@@ -28,7 +32,7 @@ function MovieSlide() {
         modules={[FreeMode, Pagination]}
         className="mySwiper"
       >
-        {MovieData.map((movie) => {
+        {movieData.map((movie) => {
           return (
             <SwiperSlide key={movie.id}>
               <img

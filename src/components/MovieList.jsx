@@ -1,6 +1,6 @@
-import movieListData from "../data/movieListData.json";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import useMovies from "../hooks/useMovies";
 
 const MovieCards = styled.ul`
   display: flex;
@@ -35,22 +35,11 @@ const Movie = ({ movie }) => {
 };
 
 function MovieList() {
-  const movies = movieListData.results;
-  const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN
 
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${ACCESS_TOKEN}`
-    }
-  };
-  
-  fetch('https://api.themoviedb.org/3/authentication', options)
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .catch(err => console.error(err));
+  const {movies, loading, error} = useMovies();
 
+  if (loading) return <p>loading...</p>
+  if (error) return <p>error : {error}</p>
   return (
     <MovieCards>
       {movies.map((movie) => (
