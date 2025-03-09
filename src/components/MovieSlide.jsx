@@ -14,8 +14,6 @@ function MovieSlide() {
   const {movies, loading, error} = useMovies();
   const movieData = movies.filter((movie) => movie.adult !== true).slice(0,8)
 
-  console.log('영화', movieData)
-
   if (loading) return <p>loading...</p>
   if (error) return <p>error : {error}</p>
   return (

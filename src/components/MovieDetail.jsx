@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import movieDetailData from "../data/movieDetailData.json";
+import useMovieDetail from "../hooks/useMovieDetail";
 
 const MovieInfoDiv = styled.div`
   padding: 32px 40px;
@@ -14,15 +14,17 @@ const MovieInfoDiv = styled.div`
 `;
 
 const MovieDetail = () => {
-  const movieData = movieDetailData;
+  const {movie, loading, error } = useMovieDetail()
+  if (loading) return <p>loading...</p>
+  if (error) return <p>error : {error}</p>
 
   const movieDetail = {
-    id: movieData.id,
-    title: movieData.belongs_to_collection.name,
-    rate: movieData.vote_average,
-    image: `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`,
-    genres: movieData.genres.map((genre) => genre.name).join(", "),
-    overview: movieData.overview,
+    id: movie.id,
+    title: movie.title,
+    rate: movie.vote_average,
+    image: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+    genres: movie.genres.map((genre) => genre.name).join(", "),
+    overview: movie.overview,
   };
 
   console.log(movieDetail);
