@@ -31,6 +31,7 @@ const AccountDiv = styled.div`
 
 function Header () {
     const navigate = useNavigate()
+
     return (
         <>
             <NavStyle>
