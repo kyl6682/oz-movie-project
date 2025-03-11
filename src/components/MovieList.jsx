@@ -4,23 +4,13 @@ import Movie from "./Movie";
 
 const MovieCards = styled.ul`
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
   flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 5px;
 `;
 
-const MovieCard = styled.li`
-  width: 250px;
-  height: 400px;
-  list-style: none;
-  border: 1px solid #f1f1f1;
-  padding: 20px;
-  img {
-    width: 200px;
-    height: 300px;
-  }
-`;
 
 function MovieList() {
   const { movies, loading, error } = useMovies();

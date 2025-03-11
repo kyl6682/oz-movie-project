@@ -34,11 +34,19 @@ const SlideDiv = styled.div`
   div {
     z-index: 2;
     position: absolute;
-    bottom: 20px;
+    bottom: 60px;
     left: 100px;
     h2 {
       color: white;
       font-size: 68px;
+    }
+    button {
+      margin: 20px 0;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border-radius: 7px;
+      background-color: #875dea;
+      color: #fff;
     }
   }
 `;
@@ -76,6 +84,7 @@ function MovieSlide() {
                   />
                   <div>
                     <h2>{movie.title}</h2>
+                    <button>자세히 보기</button>
                   </div>
                 </SlideDiv>
               </Link>
