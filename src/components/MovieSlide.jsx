@@ -47,6 +47,10 @@ const SlideDiv = styled.div`
       border-radius: 7px;
       background-color: #875dea;
       color: #fff;
+      cursor: pointer;
+      &:hover {
+        background-color: #6f48cb;
+      }
     }
   }
 `;
@@ -77,17 +81,17 @@ function MovieSlide() {
         {movieData.map((movie) => {
           return (
             <SwiperSlide key={movie.id}>
-              <Link to={`/detail/${movie.id}`}>
-                <SlideDiv>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
-                  />
-                  <div>
-                    <h2>{movie.title}</h2>
+              <SlideDiv>
+                <img
+                  src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
+                />
+                <div>
+                  <h2>{movie.title}</h2>
+                  <Link to={`/detail/${movie.id}`}>
                     <button>자세히 보기</button>
-                  </div>
-                </SlideDiv>
-              </Link>
+                  </Link>
+                </div>
+              </SlideDiv>
             </SwiperSlide>
           );
         })}
