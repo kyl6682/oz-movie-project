@@ -23,4 +23,9 @@ export const GlobalStyle = createGlobalStyle`
     button {
         border: none;
     }
+    input {
+        &:focus {
+            outline-style: none;
+        }
+    }
 `;
