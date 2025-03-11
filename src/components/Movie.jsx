@@ -22,7 +22,7 @@ const MovieCard = styled.li`
   transition: transform 0.3s ease-in-out;
   &:hover {
     transform: scale(1.05);
-    box-shadow: ${(props) => props.theme.shadow} ;
+    box-shadow: 0px 4px 15px ${(props) => props.theme.shadow} ;
     z-index: 10;
   }
   h3 {
