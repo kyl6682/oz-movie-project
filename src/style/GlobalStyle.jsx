@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import './fonts.css'
+import "./fonts.css";
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -8,6 +8,11 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-family: 'Pretendard', sans-serif;
     }
+    body {
+    background-color: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.text};
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
     a {
         text-decoration: none;
         color: black;

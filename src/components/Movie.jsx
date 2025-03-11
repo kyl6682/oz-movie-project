@@ -6,7 +6,7 @@ const MovieCard = styled.li`
   height: 350px;
   list-style: none;
   border-radius: 7px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.background};
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -22,12 +22,14 @@ const MovieCard = styled.li`
   transition: transform 0.3s ease-in-out;
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: ${(props) => props.theme.shadow} ;
     z-index: 10;
   }
   h3 {
-    margin: 10px 5px;
+    margin: 5px 5px;
     font-weight: 400;
+    font-size: 1rem;
+    color : ${(props) => props.theme.text};
   }
   span {
     background-color: #875dea;
@@ -36,7 +38,7 @@ const MovieCard = styled.li`
     border-radius: 3px;
     font-size: 0.8rem;
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
   }
 `;
