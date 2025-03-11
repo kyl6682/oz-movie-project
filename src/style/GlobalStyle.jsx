@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.text};
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  }
+    }  
     a {
         text-decoration: none;
         color: black;
@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     button {
         border: none;
+        background-color: transparent;
     }
     input {
         &:focus {

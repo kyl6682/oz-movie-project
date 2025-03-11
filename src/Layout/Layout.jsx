@@ -4,12 +4,12 @@ import Header from "./Header";
 function Layout() {
   return (
     <>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
+        <Header />
+        <main>
+          <Outlet />
+        </main>
     </>
   );
 }
 
-export default Layout
+export default Layout;

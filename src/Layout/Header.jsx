@@ -11,7 +11,7 @@ const NavStyle = styled.div`
   gap: 20px;
   min-height: 60px;
   justify-content: space-between;
-  padding: 20px 60px;
+  padding: 10px 40px;
 `;
 
 const LogoStyle = styled.div`
@@ -28,6 +28,7 @@ const SearchInput = styled.input`
   border: none;
   background-color: #efefef;
   padding: 10px 16px;
+  margin: 0px 40px;
   width: 400px;
   height: 40px;
   border-radius: 8px;
