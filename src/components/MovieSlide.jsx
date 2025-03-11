@@ -34,17 +34,17 @@ const SlideDiv = styled.div`
   div {
     z-index: 2;
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
     left: 100px;
     h2 {
       color: white;
-      font-size: 68px;
+      font-size: 48px;
     }
     button {
-      margin: 20px 0;
+      margin: 30px 0 20px 0;
       padding: 10px 20px;
-      font-size: 1.2rem;
-      border-radius: 7px;
+      font-size: 1rem;
+      border-radius: 5px;
       background-color: #875dea;
       color: #fff;
       cursor: pointer;
@@ -61,6 +61,7 @@ function MovieSlide() {
 
   if (loading) return <p>loading...</p>;
   if (error) return <p>error : {error}</p>;
+  console.log(movies)
 
   return (
     <>
