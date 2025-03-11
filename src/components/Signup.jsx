@@ -5,6 +5,7 @@ import InputField from "./common/Input";
 import Label from "./common/Label";
 import Button from "./common/Button";
 import { useRef, useState } from "react";
+import {useSupabaseAuth} from "@supabase/supabase-js"
 
 const Wrapper = styled.div`
   display: flex;
@@ -31,6 +32,8 @@ function Signup() {
   const userNameRef = useRef(null);
   const userPw1Ref = useRef(null);
   const userPw2Ref = useRef(null);
+
+  const Auth = useSupabaseAuth()
 
   const [errors, setErrors] = useState({});
 
