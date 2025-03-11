@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { UserIcon } from "../assets/Icons/User";
 import { SearchIcon } from "../assets/Icons/Search";
 import useDevice from "../hooks/useDevice";
+import ThemeButton from "../components/ThemeButton";
 
 const NavStyle = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ const NavStyle = styled.div`
 
 const LogoStyle = styled.div`
   font-size: 1.7rem;
-  color: black;
+  color: ${(props) => props.theme.text};
   font-weight: 900;
 `;
 
@@ -106,6 +107,7 @@ function Header() {
             <button>로그인</button>
             <button>회원가입</button>
           </AccountDiv>
+          <ThemeButton />
         </NavStyle>
       )}
     </>
