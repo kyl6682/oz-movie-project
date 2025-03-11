@@ -7,17 +7,29 @@ const MovieInfoDiv = styled.div`
   flex-direction: column;
   gap: 20px;
   text-align: start;
+  align-items: start;
+  justify-content: center;
   div {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+  span {
+    background-color: #875dea;
+    padding: 2px 7px;
+    color: #f1f1f1;
+    border-radius: 3px;
+    font-size: 0.9rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
 `;
 
 const MovieDetail = () => {
-  const {movie, loading, error } = useMovieDetail()
-  if (loading) return <p>loading...</p>
-  if (error) return <p>error : {error}</p>
+  const { movie, loading, error } = useMovieDetail();
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>error : {error}</p>;
 
   const movieDetail = {
     id: movie.id,
@@ -33,12 +45,10 @@ const MovieDetail = () => {
     <>
       <img src={movieDetail.image} />
       <MovieInfoDiv>
-        <div>
-          <h2>{movieDetail.title}</h2>
-          <span>{movieDetail.rate}</span>
-        </div>
+        <span>⭐️ {movieDetail.rate}</span>
+        <h2>{movieDetail.title}</h2>
         <div>{movieDetail.genres}</div>
-        <p>{movieDetail.overview}</p>
+        <div>{movieDetail.overview}</div>
       </MovieInfoDiv>
     </>
   );
