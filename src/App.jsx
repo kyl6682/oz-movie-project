@@ -6,6 +6,8 @@ import Layout from "./Layout/Layout";
 import { GlobalStyle } from "./style/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 const lightTheme = {
   background: "#ffffff",
@@ -31,6 +33,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/detail/:id" element={<About />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />}/>
           </Route>
         </Routes>
       </ThemeProvider>
