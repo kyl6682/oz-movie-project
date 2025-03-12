@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useEmailAuth } from "../supabase/auth/useEmail.auth";
-import AuthForm from "./Auth/AuthForm";
+import AuthForm from "../components/Auth/AuthForm";
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "./Auth/AuthContext";
+import { useAuthContext } from "../components/Auth/AuthContext";
 
 function Login() {
   const { login : supabaseLogin } = useEmailAuth();

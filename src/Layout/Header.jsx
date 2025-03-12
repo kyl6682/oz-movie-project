@@ -4,7 +4,7 @@ import { UserIcon } from "../assets/Icons/User";
 import { SearchIcon } from "../assets/Icons/Search";
 import useDevice from "../hooks/useDevice";
 import ThemeButton from "../components/ThemeButton";
-import { useAuthContext } from "../components/Auth/AuthContext";
+import UserMenu from "./UserMenu";
 
 const NavStyle = styled.div`
   display: flex;
@@ -45,24 +45,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const AccountDiv = styled(Wrapper)`
-  button {
-    padding: 12px 24px;
-    border-radius: 8px;
-    background-color: #875dea;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    &:hover {
-      background-color: #6f48cb;
-    }
-  }
-`;
-
 function Header() {
   const navigate = useNavigate();
   const { isMobile, isTablet, isPC } = useDevice();
-  const { user, logout } = useAuthContext();
 
   return (
     <>
@@ -75,9 +60,7 @@ function Header() {
             <button>
               <SearchIcon />
             </button>
-            <button>
-              <UserIcon />
-            </button>
+            <UserMenu />
           </Wrapper>
         </NavStyle>
       )}
@@ -91,9 +74,7 @@ function Header() {
               navigate(`/search?movie=${e.target.value}`);
             }}
           />
-          <button>
-            <UserIcon />
-          </button>
+          <UserMenu />
         </NavStyle>
       )}
       {isPC && (
@@ -106,23 +87,7 @@ function Header() {
               navigate(`/search?movie=${e.target.value}`);
             }}
           />
-          {user ? (
-            <>
-              <p>✋ {user.userName}님 환영합니다!</p>
-              <button onClick={logout}>로그아웃</button>
-            </>
-          ) : (
-            <>
-              <AccountDiv>
-                <Link to={"/login"}>
-                  <button>로그인</button>
-                </Link>
-                <Link to={"/signup"}>
-                  <button>회원가입</button>
-                </Link>
-              </AccountDiv>
-            </>
-          )}
+          <UserMenu />
           <ThemeButton />
         </NavStyle>
       )}

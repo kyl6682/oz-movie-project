@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEmailAuth } from "../supabase/auth/useEmail.auth";
-import AuthForm from "./Auth/AuthForm";
+import AuthForm from "../components/Auth/AuthForm";
 
 function Signup() {
   const { signUp } = useEmailAuth();

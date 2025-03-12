@@ -6,8 +6,8 @@ import Layout from "./Layout/Layout";
 import { GlobalStyle } from "./style/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const lightTheme = {
   background: "#ffffff",
