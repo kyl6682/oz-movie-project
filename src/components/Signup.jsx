@@ -5,7 +5,7 @@ import InputField from "./common/Input";
 import Label from "./common/Label";
 import Button from "./common/Button";
 import { useRef, useState } from "react";
-import {useSupabaseAuth} from "@supabase/supabase-js"
+import { useEmailAuth } from "../supabase/auth/useEmail.auth";
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,14 +28,14 @@ const Form = styled.form`
 `;
 
 function Signup() {
+  const { signUp } = useEmailAuth();    // 회원가입 함수
   const userMailRef = useRef(null);
   const userNameRef = useRef(null);
   const userPw1Ref = useRef(null);
   const userPw2Ref = useRef(null);
 
-  const Auth = useSupabaseAuth()
-
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false)
 
   const validationForm = () => {
     let newErrors = {};
@@ -54,8 +54,9 @@ function Signup() {
       newErrors.user_name = "이름은 최소 2글자 이상 입력해야 합니다.";
     }
     if (!passwordRegExp.test(password1)) {
-        newErrors.user_pw1 = "비밀번호는 숫자와 문자를 포함한 8자 이상이어야 합니다.";
-      }
+      newErrors.user_pw1 =
+        "비밀번호는 숫자와 문자를 포함한 8자 이상이어야 합니다.";
+    }
     if (password1 !== password2) {
       newErrors.user_pw2 = "비밀번호가 일치하지 않습니다.";
     }
@@ -63,15 +64,37 @@ function Signup() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validationForm()) {
-      alert("회원가입 성공");
-      console.log({
-        email: userMailRef.current.value,
-        name: userNameRef.current.value,
-        password: userPw1Ref.current.value,
-      });
+    if (!validationForm()) return;
+
+    setLoading(true);
+
+    const email = userMailRef.current.value;
+    const name = userNameRef.current.value;
+    const password = userPw1Ref.current.value;
+
+    try {
+        const userInfo = await signUp({email, password, name});
+
+        if (userInfo.user) {
+            console.log("회원가입 성공", userInfo);
+            alert("회원가입이 완료되었습니다!")
+        } else {
+            console.log("회원가입 실패", userInfo.error);
+            setErrors((prevErrors) => ({
+                ...prevErrors, 
+                auth: userInfo.error.message
+            }))
+        }
+    } catch (error) {
+        console.log("에러 발생", error);
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            auth : error.message
+        }))
+    } finally {
+        setLoading(false)
     }
   };
 

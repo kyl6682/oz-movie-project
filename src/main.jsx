@@ -3,7 +3,7 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./RTK/store.js";
-import {SupabaseProvider} from "@supabase/supabase-js"
+import { SupabaseProvider } from "./supabase/index.js";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
