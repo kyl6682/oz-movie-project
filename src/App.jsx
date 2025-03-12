@@ -38,7 +38,6 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/auth/callback/google" element={<AuthCallback />} />
             <Route path="/auth/callback/kakao" element={<AuthCallback />} />
-
           </Route>
         </Routes>
       </ThemeProvider>

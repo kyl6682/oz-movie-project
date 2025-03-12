@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { useEmailAuth } from "../supabase/auth/useEmail.auth";
-import AuthForm from "../components/Auth/AuthForm";
-import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../components/Auth/AuthContext";
-import { useOAuth } from "../supabase/auth/useOauth.auth";
 import styled from "styled-components";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSupabaseAuth } from "../supabase";
+import { useAuthContext } from "../components/Auth/AuthContext";
+import AuthForm from "../components/Auth/AuthForm";
 
 const SocialLogin = styled.button`
   margin-top: 20px;
@@ -20,9 +19,9 @@ const SocialLogin = styled.button`
 `;
 
 function Login() {
-  const { login: supabaseLogin } = useEmailAuth();
+  const { login: supabaseLogin } = useSupabaseAuth();
   const { login: setUserContext } = useAuthContext();
-  const { loginWithGoogle, loginWithKakao } = useOAuth();
+  const { loginWithGoogle, loginWithKakao } = useSupabaseAuth();
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
