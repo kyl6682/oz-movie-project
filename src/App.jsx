@@ -8,18 +8,19 @@ import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import AuthCallback from "./components/Auth/AuthCallback";
 
 const lightTheme = {
   background: "#ffffff",
   text: "#000000",
-  shadow : "rgba(0, 0, 0, 0.2)"
+  shadow: "rgba(0, 0, 0, 0.2)",
 };
 
 const darkTheme = {
   background: "#23232a",
   text: "#ffffff",
-  toggleBack : "#3e3e44",
-  shadow : "rgba(255, 255, 255, 0.2)"
+  toggleBack: "#3e3e44",
+  shadow: "rgba(255, 255, 255, 0.2)",
 };
 
 function App() {
@@ -34,7 +35,10 @@ function App() {
             <Route path="/detail/:id" element={<About />} />
             <Route path="/search" element={<Search />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />}/>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/auth/callback/google" element={<AuthCallback />} />
+            <Route path="/auth/callback/kakao" element={<AuthCallback />} />
+
           </Route>
         </Routes>
       </ThemeProvider>

@@ -16,14 +16,10 @@ export const AuthProvider = ({ children }) => {
           setUser(JSON.parse(storedUser));
         } else {
           const userInfo = await getUserInfo();
-          console.log("Supabase에서 가져온 유저 정보:", userInfo);
-
           if (userInfo && userInfo.user) {
             setUser(userInfo.user);
             localStorage.setItem("user", JSON.stringify(userInfo.user));
-          } else {
-            console.log("로그인이 필요합니다.");
-          }
+          } 
         }
       } catch (error) {
         console.log("유저 정보 가져오는 중 오류", error);
