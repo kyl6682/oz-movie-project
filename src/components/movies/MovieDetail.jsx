@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useMovieDetail from "../hooks/useMovieDetail";
+import useMovieDetail from "../../hooks/useMovieDetail";
 
 const MovieInfoDiv = styled.div`
   padding: 32px 40px;

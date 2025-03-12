@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkMode } from "../RTK/themeSlice";
+import { toggleDarkMode } from "../../RTK/themeSlice";
 import styled from "styled-components";
 
 const ThemToggleButton = styled.button`

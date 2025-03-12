@@ -12,7 +12,7 @@ import "swiper/css/autoplay";
 import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import styled from "styled-components";
 
-import useMovies from "../hooks/useMovies";
+import useMovies from "../../hooks/useMovies";
 import { Link } from "react-router-dom";
 
 const SlideDiv = styled.div`

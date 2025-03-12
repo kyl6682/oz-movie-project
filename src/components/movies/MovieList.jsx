@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useMovies from "../hooks/useMovies";
+import useMovies from "../../hooks/useMovies";
 import Movie from "./Movie";
 
 const MovieCards = styled.ul`
