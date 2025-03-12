@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import MovieDetail from "../components/MovieDetail";
 import useDevice from "../hooks/useDevice";
+import MovieDetail from "../components/movies/MovieDetail";
 
 const Wrapper = styled.div`
   display: flex;
