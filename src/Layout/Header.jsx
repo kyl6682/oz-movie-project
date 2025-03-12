@@ -4,6 +4,7 @@ import { UserIcon } from "../assets/Icons/User";
 import { SearchIcon } from "../assets/Icons/Search";
 import useDevice from "../hooks/useDevice";
 import ThemeButton from "../components/ThemeButton";
+import { useAuthContext } from "../components/Auth/AuthContext";
 
 const NavStyle = styled.div`
   display: flex;
@@ -60,7 +61,8 @@ const AccountDiv = styled(Wrapper)`
 
 function Header() {
   const navigate = useNavigate();
-  const {isMobile, isTablet, isPC} = useDevice()
+  const { isMobile, isTablet, isPC } = useDevice();
+  const { user, logout } = useAuthContext();
 
   return (
     <>
@@ -104,10 +106,23 @@ function Header() {
               navigate(`/search?movie=${e.target.value}`);
             }}
           />
-          <AccountDiv>
-            <Link to={'/login'}><button>로그인</button></Link>
-            <Link to={'/signup'}><button>회원가입</button></Link>
-          </AccountDiv>
+          {user ? (
+            <>
+              <p>✋ {user.userName}님 환영합니다!</p>
+              <button onClick={logout}>로그아웃</button>
+            </>
+          ) : (
+            <>
+              <AccountDiv>
+                <Link to={"/login"}>
+                  <button>로그인</button>
+                </Link>
+                <Link to={"/signup"}>
+                  <button>회원가입</button>
+                </Link>
+              </AccountDiv>
+            </>
+          )}
           <ThemeButton />
         </NavStyle>
       )}
