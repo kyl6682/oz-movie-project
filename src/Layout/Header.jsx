@@ -4,6 +4,7 @@ import { UserIcon } from "../assets/Icons/User";
 import { SearchIcon } from "../assets/Icons/Search";
 import useDevice from "../hooks/useDevice";
 import ThemeButton from "../components/ThemeButton";
+import UserMenu from "./UserMenu";
 
 const NavStyle = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ const NavStyle = styled.div`
   gap: 20px;
   min-height: 60px;
   justify-content: space-between;
-  padding: 20px 60px;
+  padding: 10px 40px;
 `;
 
 const LogoStyle = styled.div`
@@ -28,6 +29,7 @@ const SearchInput = styled.input`
   border: none;
   background-color: #efefef;
   padding: 10px 16px;
+  margin: 0px 40px;
   width: 400px;
   height: 40px;
   border-radius: 8px;
@@ -43,23 +45,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const AccountDiv = styled(Wrapper)`
-  button {
-    padding: 12px 24px;
-    border-radius: 8px;
-    background-color: #875dea;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    &:hover {
-      background-color: #6f48cb;
-    }
-  }
-`;
-
 function Header() {
   const navigate = useNavigate();
-  const {isMobile, isTablet, isPC} = useDevice()
+  const { isMobile, isTablet, isPC } = useDevice();
 
   return (
     <>
@@ -72,9 +60,7 @@ function Header() {
             <button>
               <SearchIcon />
             </button>
-            <button>
-              <UserIcon />
-            </button>
+            <UserMenu />
           </Wrapper>
         </NavStyle>
       )}
@@ -88,9 +74,7 @@ function Header() {
               navigate(`/search?movie=${e.target.value}`);
             }}
           />
-          <button>
-            <UserIcon />
-          </button>
+          <UserMenu />
         </NavStyle>
       )}
       {isPC && (
@@ -103,10 +87,7 @@ function Header() {
               navigate(`/search?movie=${e.target.value}`);
             }}
           />
-          <AccountDiv>
-            <button>로그인</button>
-            <button>회원가입</button>
-          </AccountDiv>
+          <UserMenu />
           <ThemeButton />
         </NavStyle>
       )}
