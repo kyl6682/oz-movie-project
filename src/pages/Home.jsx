@@ -1,5 +1,5 @@
-import MovieList from "../components/MovieList";
-import MovieSlide from "../components/MovieSlide";
+import MovieList from "../components/movies/MovieList";
+import MovieSlide from "../components/movies/MovieSlide";
 
 function Home() {
   return (

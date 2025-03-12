@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import useSearchMovies from "../hooks/useSearchMovies";
-import Movie from "../components/Movie";
 import styled from "styled-components";
+import Movie from "../components/movies/Movie";
 
 
 const MovieCards = styled.ul`

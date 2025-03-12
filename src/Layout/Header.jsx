@@ -1,10 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { UserIcon } from "../assets/Icons/User";
 import { SearchIcon } from "../assets/Icons/Search";
 import useDevice from "../hooks/useDevice";
-import ThemeButton from "../components/ThemeButton";
 import UserMenu from "./UserMenu";
+import ThemeButton from "../components/common/ThemeButton";
 
 const NavStyle = styled.div`
   display: flex;
