@@ -5,7 +5,7 @@ export const useOAuth = () => {
   
   // 카카오 로그인
   const loginWithKakao = async (
-    redirectTo = import.meta.env.VITE_KAKAO_REST_API_KEY,
+    redirectTo = import.meta.env.VITE_KAKAO_REDIRECT_URI,
     ...otherOptions
   ) => {
     console.log("카카오 로그인 Redirect URI:", redirectTo);
