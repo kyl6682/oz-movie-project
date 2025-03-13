@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Movie from "../components/movies/Movie";
 
 const API_URL = "https://api.themoviedb.org/3/movie/popular";
 const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN;

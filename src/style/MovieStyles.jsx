@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Wrapper } from "./CommonStyles";
 
 // Movie
 export const MovieCard = styled.li`
@@ -100,27 +101,52 @@ export const SlideInfo = styled.div`
 `;
 
 // Movie Detail
+export const DetailWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 왼쪽 정보, 오른쪽 포스터 정렬 */
+  padding: 50px 80px;
+  background: ${({ background }) => `url(${background}) center/cover no-repeat`}; /* 배경 설정 */
 
-export const DetailImage = styled.div`
-
-`
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+  }
+`;
 
 export const DetailInfo = styled.div`
-  padding: 32px 40px;
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  color: white;
   display: flex;
-  text-align: start;
-  align-items: start;
-  justify-content: center;
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+export const DetailImage = styled.div`
+  position: relative;
+  z-index: 2;
+  width: 250px;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
   }
 `;
 
 export const DetailRate = styled.span`
-  background-color: #875dea;
-  padding: 2px 7px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 90px;
+  padding: 2px 15px;
   color: #f1f1f1;
   border-radius: 3px;
   font-size: 0.9rem;
@@ -128,24 +154,21 @@ export const DetailRate = styled.span`
 
 export const DetailTitle = styled.h2`
   font-size: 2rem;
-  margin: 10px 0 20px 0;
 `;
 
 export const DetailTagline = styled.div`
-  color: ${(props) => props.theme.text};
   font-size: 1.3rem;
-  margin: 20px 0 50px 0;
   font-weight: 600;
   flex-grow: 1;
 `;
 
 export const DetailGenre = styled.div`
-  color: ${(props) => props.theme.text};
+  font-weight: 500;
 `;
 
 export const DetailOverview = styled.div`
-  height: 300px;
-  padding-right: 30px;
+margin-top: 60px;
   overflow: scroll;
   line-height: 1.5;
+  height: 100px;
 `;
