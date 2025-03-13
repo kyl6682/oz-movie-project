@@ -2,6 +2,7 @@ import styled from "styled-components";
 import useFetchMovies from "../../hooks/useFetchMovies";
 import useScrollObserve from "../../hooks/useScrollObserve";
 import Movie from "./Movie";
+import SkeletonMovie from "./SkeletonMovie";
 
 const MovieCards = styled.ul`
   display: flex;
@@ -12,23 +13,27 @@ const MovieCards = styled.ul`
   gap: 5px;
 `;
 
-function MovieList () {
-  const { movies, fetchData, hasMore, loading} = useFetchMovies();
-  const observeRef = useScrollObserve({fetchData, hasMore});
+function MovieList() {
+  const { movies, fetchData, hasMore, loading } = useFetchMovies();
+  const observeRef = useScrollObserve({ fetchData, hasMore });
 
   return (
     <>
-    <MovieCards>
-    {movies
-        .filter((movie) => movie.adult !== true)
-        .map((movie) => (
-          <Movie key={movie.id} movie={movie} />
-        ))}
-      {loading && <p>Loading</p>}
-      <div ref={observeRef} style={{ height: "10px", background: "transparent" }} />
-    </MovieCards>
+      <MovieCards>
+        {loading
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <SkeletonMovie key={index} />
+            ))
+          : movies
+              .filter((movie) => movie.adult !== true)
+              .map((movie) => <Movie key={movie.id} movie={movie} />)}
+        <div
+          ref={observeRef}
+          style={{ height: "10px", background: "transparent" }}
+        />
+      </MovieCards>
     </>
-  )
+  );
 }
 
-export default MovieList
+export default MovieList;
