@@ -58,8 +58,19 @@ export const MovieCards = styled.ul`
 
 // Movie Slide
 export const SlideSection = styled.div`
-  max-height: 680px;
+  height: 100%;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &::after {
     width: 100%;
     height: 100%;
@@ -70,7 +81,8 @@ export const SlideSection = styled.div`
     z-index: 1;
   }
 `;
-export const SlideCover = styled.div`
+
+export const SlideInfo = styled.div`
   z-index: 2;
   position: absolute;
   bottom: 40px;

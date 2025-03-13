@@ -5,3 +5,19 @@
   box-sizing: border-box;
   text-align: center;
 }
+
+.mySwiper {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.mySwiper .swiper-slide {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
