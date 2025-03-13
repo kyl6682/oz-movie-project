@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Movie from "../components/movies/Movie";
 
 const API_URL = "https://api.themoviedb.org/3/movie/popular";
 const ACCESS_TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
@@ -14,7 +15,7 @@ const useFetchMovies = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(`${API_URL}?language=ko`, {
+      const response = await fetch(`${API_URL}?language=ko&page=${page}`, {
         method: "GET",
         headers: {
           accept: "application/json",
@@ -25,17 +26,22 @@ const useFetchMovies = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-      setMovies((prevMovies) => [...prevMovies, ...data.results]);
+      setMovies((prevMovies) => {
+        // 중복 방지용 Map 사용
+        const uniqueMovies = new Map([...prevMovies.map(movie => [movie.id, movie])]);
+        data.results.forEach((movie) => uniqueMovies.set(movie.id, movie));
+        return [...uniqueMovies.values()];
+      });
       setPage((prevPage) => prevPage + 1);
-      setHasMore(data.page < data.total_pages)
-      console.log(page, movies)
+      setHasMore(data.page < data.total_pages);
     } catch (error) {
       console.error("영화 가져오기 실패", error);
     } finally {
       setLoading(false);
     }
   };
-  return {movies, fetchData, hasMore, loading}
+  console.log(page, movies);
+  return { movies, fetchData, hasMore, loading };
 };
 
-export default useFetchMovies
+export default useFetchMovies;
