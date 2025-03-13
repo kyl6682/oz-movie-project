@@ -17,7 +17,7 @@ function About() {
         </PageWrapper>
       )}
       {isPC && (
-        <PageWrapper direction="row">
+        <PageWrapper>
           <MovieDetail />
         </PageWrapper>
       )}

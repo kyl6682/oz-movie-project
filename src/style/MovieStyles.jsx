@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // Movie
 export const MovieCard = styled.li`
-  width: 230px;
+  width: 250px;
   height: 350px;
   list-style: none;
   border-radius: 7px;
@@ -22,14 +22,14 @@ export const MovieCard = styled.li`
 `;
 
 export const PosterImage = styled.img`
-  width: 220px;
+  width: 230px;
   height: 300px;
   object-fit: cover;
   border-radius: 5px;
 `;
 
 export const MovieTitle = styled.h3`
-  margin: 5px 5px;
+  margin: 5px;
   font-weight: 400;
   font-size: 1rem;
   color: ${(props) => props.theme.text};
@@ -59,6 +59,7 @@ export const MovieCards = styled.ul`
 // Movie Slide
 export const SlideSection = styled.div`
   height: 100%;
+  height: 600px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -100,10 +101,13 @@ export const SlideInfo = styled.div`
 
 // Movie Detail
 
+export const DetailImage = styled.div`
+
+`
+
 export const DetailInfo = styled.div`
   padding: 32px 40px;
   display: flex;
-  flex-direction: column;
   text-align: start;
   align-items: start;
   justify-content: center;

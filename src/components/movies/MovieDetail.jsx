@@ -1,5 +1,13 @@
 import useMovieDetail from "../../hooks/useMovieDetail";
-import { DetailGenre, DetailInfo, DetailOverview, DetailRate, DetailTagline, DetailTitle } from "../../style/MovieStyles";
+import {
+  DetailGenre,
+  DetailImage,
+  DetailInfo,
+  DetailOverview,
+  DetailRate,
+  DetailTagline,
+  DetailTitle,
+} from "../../style/MovieStyles";
 
 const MovieDetail = () => {
   const { movie, loading, error } = useMovieDetail();
@@ -20,14 +28,16 @@ const MovieDetail = () => {
   console.log(movieDetail);
   return (
     <>
-      <img src={movieDetail.image} />
       <DetailInfo>
+        <DetailImage>
+          <img src={movieDetail.image} />
+        </DetailImage>
         <DetailRate>⭐️ {movieDetail.rate}</DetailRate>
         <DetailTitle>{movieDetail.title}</DetailTitle>
         <DetailTagline>{movieDetail.tagline}</DetailTagline>
         <DetailGenre>{movieDetail.genres}</DetailGenre>
-        <DetailOverview>{movieDetail.overview}</DetailOverview>
       </DetailInfo>
+      <DetailOverview>{movieDetail.overview}</DetailOverview>
     </>
   );
 };

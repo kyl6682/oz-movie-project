@@ -5,8 +5,9 @@ import { PageWrapper } from "../style/CommonStyles";
 function Home() {
   return (
     <>
+      <MovieSlide />
+
       <PageWrapper>
-        <MovieSlide />
         <MovieList />
       </PageWrapper>
     </>

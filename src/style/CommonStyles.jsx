@@ -21,7 +21,8 @@ export const Wrapper = styled.div`
 `;
 
 export const PageWrapper = styled(Wrapper)`
-  min-height: 100vh;
+  min-height: 93vh;
+  padding: 0 160px;
 `;
 
 // Header
@@ -29,7 +30,7 @@ export const NavStyle = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  min-height: 60px;
+  min-height: 7vh;
   justify-content: space-between;
   padding: 10px 40px;
 `;
