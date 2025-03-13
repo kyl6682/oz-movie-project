@@ -8,26 +8,14 @@ import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import AuthCallback from "./components/Auth/AuthCallback";
-
-const lightTheme = {
-  background: "#ffffff",
-  text: "#000000",
-  shadow: "rgba(0, 0, 0, 0.2)",
-};
-
-const darkTheme = {
-  background: "#23232a",
-  text: "#ffffff",
-  toggleBack: "#3e3e44",
-  shadow: "rgba(255, 255, 255, 0.2)",
-};
+import AuthCallback from "./hooks/useAuthCallback";
+import { DarkTheme, LightTheme } from "./style/Theme";
 
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
   return (
     <>
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <ThemeProvider theme={darkMode ? DarkTheme : LightTheme}>
         <GlobalStyle />
         <Routes>
           <Route path="/" element={<Layout />}>

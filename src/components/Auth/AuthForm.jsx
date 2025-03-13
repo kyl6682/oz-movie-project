@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import { Wrapper, Form } from "../common/StyledComponents";
 import Label from "../common/Label";
 import InputField from "../common/Input";
 import Button from "../common/Button";
+import { Form } from "../../style/AuthStyles";
 
 function AuthForm({ type, onSubmit, error }) {
   const mailRef = useRef(null);
@@ -61,7 +61,6 @@ function AuthForm({ type, onSubmit, error }) {
   };
 
   return (
-    <Wrapper>
       <Form onSubmit={handleSubmit}>
         <Label text={"이메일"} htmlFor={"email"} />
         <InputField
@@ -108,7 +107,6 @@ function AuthForm({ type, onSubmit, error }) {
         )}
         <Button text={type === "signup" ? "회원가입" : "로그인"} />
       </Form>
-    </Wrapper>
   );
 }
 

@@ -1,22 +1,10 @@
-import styled from "styled-components";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSupabaseAuth } from "../supabase";
-import { useAuthContext } from "../components/Auth/AuthContext";
 import AuthForm from "../components/Auth/AuthForm";
-
-const SocialLogin = styled.button`
-  margin-top: 20px;
-  font-size: 1rem;
-  border-radius: 8px;
-  width: 200px;
-  height: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  hover {
-    opacity: 0.5;
-  }
-`;
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../components/Auth/AuthContext";
+import { SocialLogin } from "../style/AuthStyles";
+import { PageWrapper } from "../style/CommonStyles";
+import { useSupabaseAuth } from "../supabase";
 
 function Login() {
   const { login: supabaseLogin } = useSupabaseAuth();
@@ -56,28 +44,30 @@ function Login() {
 
   return (
     <>
-      <AuthForm type="login" onSubmit={handleLogin} error={error} />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "10px",
-        }}
-      >
-        <SocialLogin
-          style={{ backgroundColor: "#f9e000" }}
-          onClick={handleKakaoLogin}
+      <PageWrapper>
+        <AuthForm type="login" onSubmit={handleLogin} error={error} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "10px",
+          }}
         >
-          카카오로 로그인
-        </SocialLogin>
-        <SocialLogin
-          style={{ backgroundColor: "#4285F4", color: "white" }}
-          onClick={handleGoogleLogin}
-        >
-          구글로 로그인
-        </SocialLogin>
-      </div>
+          <SocialLogin
+            style={{ backgroundColor: "#f9e000" }}
+            onClick={handleKakaoLogin}
+          >
+            카카오로 로그인
+          </SocialLogin>
+          <SocialLogin
+            style={{ backgroundColor: "#4285F4", color: "white" }}
+            onClick={handleGoogleLogin}
+          >
+            구글로 로그인
+          </SocialLogin>
+        </div>
+      </PageWrapper>
     </>
   );
 }

@@ -22,9 +22,7 @@ export const changeFromDto = ({ type, dto }) => {
       return {
         error: {
           status: rawError.status || 500,
-          message:
-            rawError.message ||
-            "DTO_TYPE ERROR를 확인해주세요. 데이터 내부 error 객체가 없습니다.",
+          message: rawError.message || "DTO_TYPE ERROR를 확인해주세요. 데이터 내부 error 객체가 없습니다.",
         },
       };
     }
