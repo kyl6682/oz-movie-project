@@ -4,20 +4,8 @@ import AuthForm from "../components/Auth/AuthForm";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../components/Auth/AuthContext";
 import { useOAuth } from "../supabase/auth/useOauth.auth";
-import styled from "styled-components";
+import { SocialLogin } from "../style/AuthStyles";
 
-const SocialLogin = styled.button`
-  margin-top: 20px;
-  font-size: 1rem;
-  border-radius: 8px;
-  width: 200px;
-  height: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  hover {
-    opacity: 0.5;
-  }
-`;
 
 function Login() {
   const { login: supabaseLogin } = useEmailAuth();

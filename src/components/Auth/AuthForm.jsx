@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
-import { Wrapper, Form } from "../common/StyledComponents";
 import Label from "../common/Label";
 import InputField from "../common/Input";
 import Button from "../common/Button";
+import { Wrapper } from "../../style/CommonStyles";
+import { Form } from "../../style/AuthStyles";
 
 function AuthForm({ type, onSubmit, error }) {
   const mailRef = useRef(null);

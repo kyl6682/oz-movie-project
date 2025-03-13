@@ -1,16 +1,8 @@
 import { useSearchParams } from "react-router-dom";
 import useSearchMovies from "../hooks/useSearchMovies";
-import styled from "styled-components";
 import Movie from "../components/movies/Movie";
-
-
-const MovieCards = styled.ul`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-`;
+import { Wrapper } from "../style/CommonStyles";
+import { MovieCards } from "../style/MovieStyles";
 
 function Search() {
   const [searchParams] = useSearchParams();
@@ -22,8 +14,8 @@ function Search() {
   if (error) return <p>에러 발생: {error}</p>;
 
   return (
-    <div>
-      <h2>"{query}" 검색 결과</h2>
+    <Wrapper>
+      <h2 style={{marginTop: "40px"}}>"{query}" 검색 결과</h2>
       {filteredMovies.length > 0 ? (
         <MovieCards>
           {filteredMovies.map((movie) => (
@@ -33,7 +25,7 @@ function Search() {
       ) : (
         <p>검색 결과가 없습니다.</p>
       )}
-    </div>
+    </Wrapper>
   );
 }
 

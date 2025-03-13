@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { useSupabase } from "../../supabase"
+import { useSupabase } from "../supabase"
 import { useEffect } from "react";
 
-const AuthCallback = () => {
+const useAuthCallback = () => {
     const supabase = useSupabase();
     const navigate = useNavigate();
 
@@ -22,4 +22,4 @@ const AuthCallback = () => {
     return <div>로그인 중입니다...</div>
 }
 
-export default AuthCallback
+export default useAuthCallback

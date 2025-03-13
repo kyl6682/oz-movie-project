@@ -1,11 +1,14 @@
 import MovieList from "../components/movies/MovieList";
 import MovieSlide from "../components/movies/MovieSlide";
+import { Wrapper } from "../style/CommonStyles";
 
 function Home() {
   return (
     <>
-      <MovieSlide />
-      <MovieList />
+      <Wrapper>
+        <MovieSlide />
+        <MovieList />
+      </Wrapper>
     </>
   );
 }

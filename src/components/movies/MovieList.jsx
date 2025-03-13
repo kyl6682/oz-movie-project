@@ -1,17 +1,8 @@
-import styled from "styled-components";
 import useFetchMovies from "../../hooks/useFetchMovies";
 import useScrollObserve from "../../hooks/useScrollObserve";
+import { MovieCards } from "../../style/MovieStyles";
 import Movie from "./Movie";
 import SkeletonMovie from "./SkeletonMovie";
-
-const MovieCards = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  gap: 5px;
-`;
 
 function MovieList() {
   const { movies, fetchData, hasMore, loading } = useFetchMovies();
