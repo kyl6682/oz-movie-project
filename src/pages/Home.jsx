@@ -1,14 +1,14 @@
 import MovieList from "../components/movies/MovieList";
 import MovieSlide from "../components/movies/MovieSlide";
-import { Wrapper } from "../style/CommonStyles";
+import { PageWrapper } from "../style/CommonStyles";
 
 function Home() {
   return (
     <>
-      <Wrapper>
+      <PageWrapper>
         <MovieSlide />
         <MovieList />
-      </Wrapper>
+      </PageWrapper>
     </>
   );
 }

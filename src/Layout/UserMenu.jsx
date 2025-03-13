@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useAuthContext } from "../components/Auth/AuthContext";
 import { Link } from "react-router-dom";
 import useDevice from "../hooks/useDevice";
@@ -6,40 +5,8 @@ import { UserIcon } from "../assets/Icons/User";
 import { useState } from "react";
 import Button from "../components/common/Button";
 import { HamburgerIcon } from "../assets/Icons/Hamburger";
-
-const MenuWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
-
-const MobileWrapper = styled(MenuWrapper)`
-  flex-direction: column;
-`;
-
-const DropdownMenu = styled.div`
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: white;
-  z-index: 100;
-  width: 100px;
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 10 px;
-  gap: 10px;
-  visibility: ${(props) => (props.open ? "visible" : "hidden")};
-`;
-
-const MenuItem = styled(Link)`
-  &:hover {
-    opacity: 0.5;
-  }
-`;
+import { DropdownMenu, MenuItem, Wrapper } from "../style/CommonStyles";
+import ThemeButton from "../components/common/ThemeButton";
 
 function UserMenu() {
   const { user, logout } = useAuthContext();
@@ -55,7 +22,7 @@ function UserMenu() {
       {!isPC &&
         (user ? (
           <>
-            <MobileWrapper>
+            <Wrapper direction={"row"}>
               <button onClick={handleToggleMenu}>
                 <UserIcon />
               </button>
@@ -65,25 +32,27 @@ function UserMenu() {
                   로그아웃
                 </MenuItem>
               </DropdownMenu>
-            </MobileWrapper>
+              <ThemeButton />
+            </Wrapper>
           </>
         ) : (
           <>
-            <MobileWrapper>
+            <Wrapper direction={"row"}>
               <button onClick={handleToggleMenu}>
-                <HamburgerIcon />
+                <HamburgerIcon/>
               </button>
               <DropdownMenu open={menuOpen}>
                 <MenuItem to={"/login"}>로그인</MenuItem>
                 <MenuItem to={"/signup"}>회원가입</MenuItem>
               </DropdownMenu>
-            </MobileWrapper>
+              <ThemeButton />
+            </Wrapper>
           </>
         ))}
       {isPC &&
         (user ? (
           <>
-            <MenuWrapper>
+            <Wrapper direction={"row"}>
               <p>✋ {user?.userName}님 환영합니다!</p>
               <button onClick={handleToggleMenu}>
                 <UserIcon />
@@ -94,18 +63,20 @@ function UserMenu() {
                   로그아웃
                 </MenuItem>
               </DropdownMenu>
-            </MenuWrapper>
+              <ThemeButton />
+            </Wrapper>
           </>
         ) : (
           <>
-            <MenuWrapper>
+            <Wrapper direction={"row"}>
               <Link to={"/login"}>
                 <Button text={"로그인"} />
               </Link>
               <Link to={"/signup"}>
                 <Button text={"회원가입"} />
               </Link>
-            </MenuWrapper>
+              <ThemeButton />
+            </Wrapper>
           </>
         ))}
     </>

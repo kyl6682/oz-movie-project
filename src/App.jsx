@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AuthCallback from "./hooks/useAuthCallback";
-import { DarkTheme, LightTheme } from "./style/CommonStyles";
+import { DarkTheme, LightTheme } from "./style/Theme";
 
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);

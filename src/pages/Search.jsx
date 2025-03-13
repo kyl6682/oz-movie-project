@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import useSearchMovies from "../hooks/useSearchMovies";
 import Movie from "../components/movies/Movie";
-import { Wrapper } from "../style/CommonStyles";
+import { PageWrapper } from "../style/CommonStyles";
 import { MovieCards } from "../style/MovieStyles";
 
 function Search() {
@@ -14,7 +14,7 @@ function Search() {
   if (error) return <p>에러 발생: {error}</p>;
 
   return (
-    <Wrapper>
+    <PageWrapper>
       <h2 style={{marginTop: "40px"}}>"{query}" 검색 결과</h2>
       {filteredMovies.length > 0 ? (
         <MovieCards>
@@ -25,7 +25,7 @@ function Search() {
       ) : (
         <p>검색 결과가 없습니다.</p>
       )}
-    </Wrapper>
+    </PageWrapper>
   );
 }
 

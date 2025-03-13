@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../components/Auth/AuthContext";
 import { useOAuth } from "../supabase/auth/useOauth.auth";
 import { SocialLogin } from "../style/AuthStyles";
-
+import { PageWrapper } from "../style/CommonStyles";
 
 function Login() {
   const { login: supabaseLogin } = useEmailAuth();
@@ -45,28 +45,30 @@ function Login() {
 
   return (
     <>
-      <AuthForm type="login" onSubmit={handleLogin} error={error} />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "10px",
-        }}
-      >
-        <SocialLogin
-          style={{ backgroundColor: "#f9e000" }}
-          onClick={handleKakaoLogin}
+      <PageWrapper>
+        <AuthForm type="login" onSubmit={handleLogin} error={error} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "10px",
+          }}
         >
-          카카오로 로그인
-        </SocialLogin>
-        <SocialLogin
-          style={{ backgroundColor: "#4285F4", color: "white" }}
-          onClick={handleGoogleLogin}
-        >
-          구글로 로그인
-        </SocialLogin>
-      </div>
+          <SocialLogin
+            style={{ backgroundColor: "#f9e000" }}
+            onClick={handleKakaoLogin}
+          >
+            카카오로 로그인
+          </SocialLogin>
+          <SocialLogin
+            style={{ backgroundColor: "#4285F4", color: "white" }}
+            onClick={handleGoogleLogin}
+          >
+            구글로 로그인
+          </SocialLogin>
+        </div>
+      </PageWrapper>
     </>
   );
 }

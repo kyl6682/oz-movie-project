@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEmailAuth } from "../supabase/auth/useEmail.auth";
 import AuthForm from "../components/Auth/AuthForm";
+import { PageWrapper } from "../style/CommonStyles";
 
 function Signup() {
   const { signUp } = useEmailAuth();
@@ -21,7 +22,11 @@ function Signup() {
     }
   };
 
-  return <AuthForm type="signup" onSubmit={handleSignup} error={error} />;
+  return (
+    <PageWrapper>
+      <AuthForm type="signup" onSubmit={handleSignup} error={error} />
+    </PageWrapper>
+  );
 }
 
 export default Signup;
