@@ -7,11 +7,12 @@ export const shimmer = keyframes`
     100%{background-position: 100px 0}      // 100% → 100px까지 이동
 `;
 export const SkeletonCard = styled(MovieCard)`
-  background-color:#ddd;
+  background-color:#f1f1f1;
+  border: none;
 `;
 
 export const SkeletonImage = styled(PosterImage)`
-  background: linear-gradient(90deg, #e0e0e0 25%, #e4e4e4 50%, #e0e0e0 75%);
+  background: linear-gradient(90deg, #f2f2f2 25%, #e0e0e0 50%, #f2f2f2 75%);
   background-size: 200% 100%;
   animation: ${shimmer} 1.5s infinite;  // shimmer 애니메이션을 1.5초마다 반복 실행
 `;
@@ -19,7 +20,7 @@ export const SkeletonImage = styled(PosterImage)`
 export const SkeletonTitle = styled(MovieTitle)`
     width: 100%;
     height: 20px;
-    background: linear-gradient(90deg, #e0e0e0 25%, #e4e4e4 50%, #e0e0e0 75%);
+    background: linear-gradient(90deg, #f2f2f2 25%, #e0e0e0 50%, #f2f2f2 75%);
     border-radius: 4px;
     animation: ${shimmer} 1.5s infinite;  
 `

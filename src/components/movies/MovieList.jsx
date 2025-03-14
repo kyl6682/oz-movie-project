@@ -12,7 +12,7 @@ function MovieList() {
     <>
       <MovieCards>
         {loading
-          ? Array.from({ length: 8 }).map((_, index) => (
+          ? Array.from({ length: 20 }).map((_, index) => (
               <SkeletonMovie key={index} />
             ))
           : movies
