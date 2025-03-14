@@ -7,7 +7,7 @@ function SimilarMovie() {
       style={{
         marginTop: "40px"
       }}
-      >비슷한 장르의 영화</h2>
+      >더 많은 영화</h2>
       <MovieList />
     </>
   );

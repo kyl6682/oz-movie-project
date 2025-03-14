@@ -14,7 +14,6 @@ const MovieDetail = () => {
   const { movie, loading, error } = useMovieDetail();
   if (loading) return <p>loading...</p>;
   if (error) return <p>error : {error}</p>;
-  console.log(movie);
 
   const movieDetail = {
     id: movie.id,
@@ -22,10 +21,11 @@ const MovieDetail = () => {
     tagline: movie.tagline,
     rate: movie.vote_average.toFixed(2),
     image: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
-    background : `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`,
+    background: `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`,
     genres: movie.genres.map((genre) => genre.name).join(", "),
     overview: movie.overview,
   };
+
 
   console.log(movieDetail);
   return (
